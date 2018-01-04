@@ -91,4 +91,4 @@ callback(null, response);
 ```
 
 ## Useful Links
-* [AWS Service Guide](https://serverless.com/framework/docs/providers/aws/guide/services/
+* [AWS Service Guide](https://serverless.com/framework/docs/providers/aws/guide/services/)
