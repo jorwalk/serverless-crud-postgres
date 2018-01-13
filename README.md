@@ -1,9 +1,11 @@
 # serverless-crud-postgres
 API Gateway, Lambda, Postgres Crud
 
-## Prerequisite
+## Dependencies
 
-[Serverless](https://github.com/serverless/serverless)
+ - [Serverless](https://github.com/serverless/serverless)
+ - [node-postgres](https://github.com/brianc/node-postgres)
+ - [dotenv](https://github.com/motdotla/dotenv)
 
 Install via npm:
 ```
