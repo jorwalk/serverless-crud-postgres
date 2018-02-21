@@ -75,5 +75,18 @@ const timestamp = new Date().getTime();
 
 ```
 
+### AWS Lambda success response
+```
+var response = {
+    "statusCode": 200,
+    "headers": {
+        "my_header": "my_value"
+    },
+    "body": JSON.stringify(res.rows[0]),
+    "isBase64Encoded": false
+};
+callback(null, response);
+```
+
 ## Useful Links
 * [AWS Service Guide](https://serverless.com/framework/docs/providers/aws/guide/services/
