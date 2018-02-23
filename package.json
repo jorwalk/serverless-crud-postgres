@@ -1,0 +1,11 @@
+{
+  "name": "serverless-crud-postgres",
+  "version": "1.0.0",
+  "description": "Serverless CRUD service exposing a REST HTTP interface",
+  "author": "Jordan Walker",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^5.0.0",
+    "pg": "^7.4.1"
+  }
+}

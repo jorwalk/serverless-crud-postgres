@@ -1,0 +1,62 @@
+service: pins
+
+frameworkVersion: ">=1.1.0 <2.0.0"
+
+provider:
+  name: aws
+  runtime: nodejs6.10
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - rds:*
+      Resource: "*"
+  vpc:
+    securityGroupIds:
+      - sg-a61522d1
+    subnetIds:
+      - subnet-a5e593ee
+      - subnet-3fdc7610
+
+  environment:
+    PG_HOST: ${file(./config/envVars.js):getEnvVars.pg_host}
+    PG_DB : ${file(./config/envVars.js):getEnvVars.pg_db}
+    PG_PORT: ${file(./config/envVars.js):getEnvVars.pg_port}
+    PG_USER: ${file(./config/envVars.js):getEnvVars.pg_user}
+    PG_PASSWORD: ${file(./config/envVars.js):getEnvVars.pg_password}
+    
+functions:
+  list:
+    handler: handlers/list.pins
+    events:
+      - http:
+          path: pins
+          method: get
+          cors: true
+  create:
+    handler: handlers/create.pin
+    events:
+      - http:
+          path: pins
+          method: post
+          cors: true
+  get:
+    handler: handlers/get.pin
+    events:
+      - http:
+          path: pins/{id}
+          method: get
+          cors: true
+  update:
+    handler: handlers/update.pin
+    events:
+      - http:
+          path: pins/{id}
+          method: put
+          cors: true
+  delete:
+    handler: handlers/delete.pin
+    events:
+      - http:
+          path: pins/{id}
+          method: delete
+          cors: true
